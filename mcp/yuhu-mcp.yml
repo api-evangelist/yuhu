@@ -1,0 +1,78 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: https://developer.yuhu.io/
+note: >-
+  No official hosted/remote MCP server was found for Yuhu. This is a CANDIDATE tool list
+  derived from the documented Yuhu Partners API v1 operations (no machine-readable OpenAPI
+  is published, so tools are grounded in the documented endpoints). Not an authoritative
+  provider claim.
+server:
+  name: yuhu-partners
+  transport: http
+  base_url: https://api.yuhu.io/partners/v1
+  auth: oauth2-client-credentials
+tools:
+- name: list_companies
+  description: List companies.
+  source_operation: GET /partners/v1/companies
+- name: upsert_company
+  description: Create or update companies.
+  source_operation: PUT /partners/v1/companies
+- name: list_sites
+  description: List sites/projects.
+  source_operation: GET /partners/v1/sites
+- name: upsert_site
+  description: Create or update sites/projects.
+  source_operation: PUT /partners/v1/sites
+- name: list_buildings
+  description: List buildings.
+  source_operation: GET /partners/v1/buildings
+- name: upsert_building
+  description: Create or update buildings.
+  source_operation: PUT /partners/v1/buildings
+- name: list_units
+  description: List units.
+  source_operation: GET /partners/v1/units
+- name: upsert_unit
+  description: Create or update units.
+  source_operation: PUT /partners/v1/units
+- name: list_unit_types
+  description: List unit types.
+  source_operation: GET /partners/v1/unit_types
+- name: list_leases
+  description: List leases.
+  source_operation: GET /partners/v1/leases
+- name: upsert_lease
+  description: Create or update leases (sync or async).
+  source_operation: PUT /partners/v1/leases
+- name: list_tenants
+  description: List tenants.
+  source_operation: GET /partners/v1/tenants
+- name: upsert_tenant
+  description: Create or update tenants (sync or async).
+  source_operation: PUT /partners/v1/tenants
+- name: list_service_requests
+  description: List service (maintenance) requests.
+  source_operation: GET /partners/v1/service_requests
+- name: upsert_service_request
+  description: Create or update service requests (sync or async).
+  source_operation: PUT /partners/v1/service_requests
+- name: list_notices
+  description: List notices.
+  source_operation: GET /partners/v1/notices
+- name: upsert_notice
+  description: Create or update notices (sync or async).
+  source_operation: PUT /partners/v1/notices
+- name: list_amenities
+  description: List amenities.
+  source_operation: GET /partners/v1/amenities
+- name: get_showings_availability
+  description: Get showing availability.
+  source_operation: GET showings availability
+- name: create_showing
+  description: Create a showing.
+  source_operation: POST create showing
+- name: create_application
+  description: Create a rental application.
+  source_operation: POST create application

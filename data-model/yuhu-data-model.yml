@@ -1,0 +1,112 @@
+generated: '2026-07-21'
+method: derived
+source: https://developer.yuhu.io/
+note: >-
+  Entity-relationship graph derived from the documented Yuhu Partners API v1 resource
+  surface and its by-parent endpoints (no OpenAPI is published; relationships inferred from
+  documented nesting such as /companies/:id/buildings, /buildings/:id/units,
+  /buildings/:id/leases, /service_requests?by_tenant).
+entities:
+- name: Company
+  description: Top-level property-management organization / owner.
+- name: Site
+  description: A site or project belonging to a company.
+- name: Building
+  description: A building belonging to a company; contains unit types and units.
+- name: UnitType
+  description: A unit type (floorplan) within a building.
+- name: Unit
+  description: An individual rentable unit within a building.
+- name: SiteStaff
+  description: Staff members associated with a site.
+- name: Role
+  description: Roles and permissions.
+- name: Lease
+  description: A lease associated with a building/unit and tenant(s).
+- name: Tenant
+  description: A tenant/resident associated with a building and lease.
+- name: ServiceRequest
+  description: A maintenance/service request raised by a tenant on a building.
+- name: Notice
+  description: A notice associated with a building.
+- name: Amenity
+  description: A bookable amenity for a building.
+- name: Prospect
+  description: A prospective renter.
+- name: Application
+  description: A rental application.
+- name: Showing
+  description: A unit showing/tour.
+- name: RentableItem
+  description: An additional rentable item for a building.
+- name: TrafficSource
+  description: A lead/traffic source.
+relationships:
+- from: Site
+  to: Company
+  type: belongs_to
+  via: company_id
+- from: Building
+  to: Company
+  type: belongs_to
+  via: company_id
+- from: UnitType
+  to: Building
+  type: belongs_to
+  via: building_id
+- from: Unit
+  to: Building
+  type: belongs_to
+  via: building_id
+- from: Unit
+  to: UnitType
+  type: belongs_to
+  via: unit_type_id
+- from: Lease
+  to: Building
+  type: belongs_to
+  via: building_id
+- from: Tenant
+  to: Building
+  type: belongs_to
+  via: building_id
+- from: Tenant
+  to: Lease
+  type: belongs_to
+  via: lease_id
+- from: ServiceRequest
+  to: Building
+  type: belongs_to
+  via: building_id
+- from: ServiceRequest
+  to: Tenant
+  type: belongs_to
+  via: tenant_id
+- from: Notice
+  to: Building
+  type: belongs_to
+  via: building_id
+- from: Amenity
+  to: Building
+  type: belongs_to
+  via: building_id
+- from: RentableItem
+  to: Building
+  type: belongs_to
+  via: building_id
+- from: TrafficSource
+  to: Building
+  type: belongs_to
+  via: building_id
+- from: Building
+  to: Unit
+  type: has_many
+  via: building_id
+- from: Building
+  to: Lease
+  type: has_many
+  via: building_id
+- from: Building
+  to: Tenant
+  type: has_many
+  via: building_id

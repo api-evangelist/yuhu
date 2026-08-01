@@ -1,0 +1,45 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.yuhu.io/
+docs: https://developer.yuhu.io/
+window: hourly
+timeout_seconds: 60
+notes: >-
+  Yuhu documents per-resource hourly request ceilings and per-request batch-size limits for
+  synchronous endpoints, plus batch limits for asynchronous endpoints. All requests have a
+  60-second server timeout.
+rate_limits:
+- resource: Companies/Sites
+  scope: synchronous
+  limit_count: 30000
+  window: hourly
+  batch_limit: 1000
+- resource: Buildings
+  scope: synchronous
+  limit_count: 15000
+  window: hourly
+  batch_limit: 500
+- resource: Units
+  scope: synchronous
+  limit_count: 45000
+  window: hourly
+  batch_limit: 1500
+- resource: Leases/Tenants
+  scope: synchronous
+  limit_count: 9000
+  window: hourly
+  batch_limit: 300
+- resource: Service Requests
+  scope: synchronous
+  limit_count: 12000
+  window: hourly
+  batch_limit: 400
+async_batch_limits:
+- resource: Leases
+  batch_limit: 1000
+- resource: Tenants
+  batch_limit: 1000
+- resource: Service Requests
+  batch_limit: 1000
+- resource: Notices
+  batch_limit: 1000

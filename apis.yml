@@ -1,7 +1,29 @@
 aid: yuhu
 name: Yuhu
-description: Yuhu is a company surfaced as a portfolio company of uncork-capital and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Yuhu is a cloud-based rental lifecycle management platform for multifamily and
+  single-family property managers, covering leasing, prospects and applications,
+  tenants and leases, buildings and units, service requests, notices, amenities,
+  showings, rentable items, and rent payments (EFT/ACH pre-authorized debit).
+  Founded in Toronto in 2015 and acquired by HappyCo in November 2022, Yuhu is now
+  part of HappyCo's Happy Property suite. Yuhu exposes a REST Partners API (v1) at
+  api.yuhu.io that lets integration partners and PMS systems synchronize companies,
+  sites, buildings, unit types, units, leases, tenants, service requests, notices,
+  and payments using OAuth 2.0 client-credentials bearer tokens, upsert-style writes,
+  synchronous and asynchronous batch endpoints, and per-resource hourly rate limits.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.prod.website-files.com/6414ce4dcbfbc386d105ceb9/64784cb7f5cd8d6fe9023736_HappCo-logo-Navy.svg
 url: https://raw.githubusercontent.com/api-evangelist/yuhu/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,12 +33,105 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- Property Management
+- PropTech
+- Real Estate
+- Multifamily
+- Rental
+- Leasing
+- Payments
+- Partners API
+apis:
+- name: Yuhu Partners API
+  description: >-
+    REST API (v1) for integration partners to synchronize property-management data with
+    Yuhu: companies, sites/projects, buildings, unit types, units, site staff, roles and
+    permissions, leases, tenants, service requests, notices, notification preferences,
+    amenities, payments (EFT/ACH pre-authorized debit), traffic sources, prospects,
+    applications, showings, rentable items, and rental incentives. Authenticated with
+    OAuth 2.0 client-credentials bearer tokens; writes are upserts; supports synchronous
+    and asynchronous batch endpoints with per-resource hourly rate limits.
+  humanURL: https://developer.yuhu.io/
+  baseURL: https://api.yuhu.io/partners/v1
+  tags:
+  - Property Management
+  - Partners API
+  - Leasing
+  - Payments
+  properties:
+  - type: Documentation
+    url: https://developer.yuhu.io/
+  - type: APIReference
+    url: https://developer.yuhu.io/
+  - type: Authentication
+    url: authentication/yuhu-authentication.yml
+  - type: RateLimits
+    url: rate-limits/yuhu-rate-limits.yml
+  - type: Conventions
+    url: conventions/yuhu-conventions.yml
+  - type: Idempotency
+    url: conventions/yuhu-conventions.yml
+  - type: Lifecycle
+    url: lifecycle/yuhu-lifecycle.yml
+  - type: Conformance
+    url: conformance/yuhu-conformance.yml
+  - type: WellKnown
+    url: well-known/yuhu-well-known.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DomainSecurity
+  url: security/yuhu-domain-security.yml
+- type: DeveloperPortal
+  url: https://developer.yuhu.io/
+- type: Documentation
+  url: https://developer.yuhu.io/
+- type: APIReference
+  url: https://developer.yuhu.io/
+- type: SignUp
+  url: https://app.yuhu.io/login
+- type: Login
+  url: https://app.yuhu.io/login
+- type: Pricing
+  url: https://happy.co/pricing
+- type: Support
+  url: https://support.happy.co/hc/en-us
+- type: TermsOfService
+  url: https://support.happy.co/hc/en-us/articles/24882424053396-Terms-of-Service
+- type: PrivacyPolicy
+  url: https://yuhu.io/privacy
+- type: Blog
+  url: https://happy.co/explore/resources
+- type: Compliance
+  url: https://happy.co/press/happyco-announces-soc-2-type-ii-security-certification
+- type: Authentication
+  url: authentication/yuhu-authentication.yml
+- type: RateLimits
+  url: rate-limits/yuhu-rate-limits.yml
+- type: Conventions
+  url: conventions/yuhu-conventions.yml
+- type: Idempotency
+  url: conventions/yuhu-conventions.yml
+- type: Lifecycle
+  url: lifecycle/yuhu-lifecycle.yml
+- type: Conformance
+  url: conformance/yuhu-conformance.yml
+- type: WellKnown
+  url: well-known/yuhu-well-known.yml
+- type: MCPServer
+  url: mcp/yuhu-mcp.yml
+- type: DataModel
+  url: data-model/yuhu-data-model.yml
+- type: LLMsTxt
+  url: llms/yuhu-llms.txt
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 10
+  pass: local-v1

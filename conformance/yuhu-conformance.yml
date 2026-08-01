@@ -1,0 +1,37 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.yuhu.io/
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    Partners API authenticates via OAuth 2.0 client-credentials grant (token + revoke
+    endpoints, Bearer tokens).
+- id: oauth2-client-credentials
+  conforms: true
+  evidence: grant_type=client_credentials documented at /partners/token
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors surface via a success/message envelope, not application/problem+json.
+- id: idempotent-writes
+  conforms: true
+  evidence: Write endpoints are upserts; re-sending data overwrites, not duplicates.
+- id: pagination-offset
+  conforms: true
+  evidence: GET endpoints accept limit and offset query parameters.
+- id: iso8601-utc-dates
+  conforms: true
+  evidence: Dates are sent as UTC date objects (e.g. 2019-07-14T19:05:54).
+- id: soc2-type-ii
+  conforms: true
+  evidence: >-
+    HappyCo (Yuhu's parent since Nov 2022) holds SOC 2 Type II certification (announced
+    Dec 2022) covering security, availability, confidentiality, processing integrity, and
+    privacy.
+  reference: https://happy.co/press/happyco-announces-soc-2-type-ii-security-certification
+- id: openapi
+  conforms: false
+  evidence: No machine-readable OpenAPI/Swagger specification is published.
+- id: asyncapi
+  conforms: false
+  evidence: No event/webhook surface or AsyncAPI is published (async endpoints are batch jobs).

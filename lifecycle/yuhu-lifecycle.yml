@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.yuhu.io/
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://developer.yuhu.io/
+  detail: API version v1 is carried in the path, e.g. /partners/v1/.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  detail: >-
+    No formal deprecation or Sunset/Deprecation (RFC 8594) header policy is documented.
+    Several endpoints are labelled "[BETA - not live]" (Traffic Sources delete, Prospect
+    delete, Rentable Items delete, and all Rental Incentives operations), and Payments is
+    a Beta product area.
+beta_operations:
+- Traffic Sources DELETE
+- Prospects DELETE
+- Rentable Items DELETE
+- Rental Incentives (all operations)
+- Payments (product area)
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+deprecated_operations: []

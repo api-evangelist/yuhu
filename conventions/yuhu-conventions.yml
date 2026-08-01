@@ -1,0 +1,58 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.yuhu.io/
+docs: https://developer.yuhu.io/
+authentication:
+  style: oauth2-client-credentials-bearer
+  ref: authentication/yuhu-authentication.yml
+idempotency:
+  supported: true
+  mechanism: upsert
+  key_header: null
+  detail: >-
+    Write endpoints are upserts. The docs state: "the endpoints are all upserts so there is
+    no harm in re-sending data. Objects will be overwritten not duplicated." Re-sending the
+    same object is therefore safe and does not create duplicates. There is no dedicated
+    Idempotency-Key header; idempotency is achieved through PUT/upsert semantics keyed on
+    the object's identifier.
+pagination:
+  style: offset
+  params: [limit, offset]
+  detail: >-
+    GET endpoints accept limit and offset query parameters. Defaults and maximums are not
+    documented; per-request batch sizes for writes are capped per resource (see rate-limits).
+batching:
+  supported: true
+  detail: >-
+    Multiple operations can be combined in a single HTTP request, with dependency ordering
+    so newly created objects can be referenced by later operations in the same batch.
+async:
+  supported: true
+  detail: >-
+    Dedicated asynchronous endpoints under /partners/v1/async/ enqueue jobs and return a
+    group_key. Job status is polled at /partners/async/async_jobs/:group_key.
+  poll_url: https://api.yuhu.io/partners/async/async_jobs/:group_key
+response_envelope:
+  shape: >-
+    Write responses return an array of per-object results, each with id, success (boolean),
+    and message (null or string). Async responses return {message, report_link}. Deletes
+    return {message}.
+  fields: [id, success, message]
+  example: '{"id": "999", "success": true, "message": null}'
+dates:
+  format: iso-8601-utc
+  detail: 'Dates are sent as UTC date objects, e.g. 2019-07-14T19:05:54 or 2019-07-14.'
+  token_timestamps: unix-epoch
+versioning:
+  scheme: uri-path
+  current: v1
+  ref: lifecycle/yuhu-lifecycle.yml
+rate_limit_signaling:
+  ref: rate-limits/yuhu-rate-limits.yml
+  detail: Per-resource hourly ceilings and batch limits; 60-second server timeout.
+error_handling:
+  ref: null
+  detail: >-
+    Errors are not formally catalogued in the docs. Failures surface via the per-object
+    success:false + message field in the write-response envelope. No RFC 9457 problem+json
+    is documented.

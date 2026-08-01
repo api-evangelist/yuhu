@@ -1,0 +1,44 @@
+# Yuhu
+
+> Yuhu is a cloud-based rental lifecycle management platform for multifamily and single-family property managers, covering leasing, tenants and leases, buildings and units, service requests, notices, amenities, showings, and rent payments (EFT/ACH pre-authorized debit). Founded in Toronto in 2015 and acquired by HappyCo in November 2022, Yuhu exposes a REST Partners API (v1) for integration partners.
+
+## APIs
+
+- [Yuhu Partners API](https://developer.yuhu.io/): REST API (v1) at https://api.yuhu.io/partners/v1 for syncing companies, sites, buildings, unit types, units, leases, tenants, service requests, notices, amenities, payments, prospects, applications, showings, and rentable items. OAuth 2.0 client-credentials bearer auth; upsert writes; sync + async batch endpoints; per-resource hourly rate limits.
+
+## Authentication
+
+- OAuth 2.0 client-credentials. Token endpoint: https://api.yuhu.io/partners/token (grant_type=client_credentials, client_id, client_secret). Revoke: https://api.yuhu.io/partners/revoke. Send Authorization: Bearer <token>.
+
+## Conventions
+
+- Writes are upserts (re-sending is safe; objects overwritten, not duplicated).
+- Pagination via limit and offset query params.
+- Batch requests supported with dependency ordering; async endpoints under /partners/v1/async/ return a group_key polled at /partners/async/async_jobs/:group_key.
+- Dates in UTC ISO-8601 (e.g. 2019-07-14T19:05:54).
+- Write responses: array of {id, success, message}.
+
+## Docs
+
+- [Developer Portal / API Reference](https://developer.yuhu.io/)
+- [Product (HappyCo / Yuhu)](https://happy.co/yuhu)
+- [Pricing](https://happy.co/pricing)
+- [Support](https://support.happy.co/hc/en-us)
+- [Privacy Policy](https://yuhu.io/privacy)
+- [Terms of Service](https://support.happy.co/hc/en-us/articles/24882424053396-Terms-of-Service)
+
+## Repo Artifacts
+
+- [Authentication](authentication/yuhu-authentication.yml)
+- [Rate Limits](rate-limits/yuhu-rate-limits.yml)
+- [Conventions](conventions/yuhu-conventions.yml)
+- [Lifecycle](lifecycle/yuhu-lifecycle.yml)
+- [Conformance](conformance/yuhu-conformance.yml)
+- [Data Model](data-model/yuhu-data-model.yml)
+- [MCP (candidate)](mcp/yuhu-mcp.yml)
+- [Well-Known index](well-known/yuhu-well-known.yml)
+- [Domain Security](security/yuhu-domain-security.yml)
+
+## Compliance
+
+- HappyCo (Yuhu's parent) holds SOC 2 Type II certification: https://happy.co/press/happyco-announces-soc-2-type-ii-security-certification

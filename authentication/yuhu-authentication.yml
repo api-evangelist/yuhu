@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: https://developer.yuhu.io/
+docs: https://developer.yuhu.io/
+summary:
+  types: [oauth2]
+  oauth2_flows: [clientCredentials]
+  api_key_in: []
+notes: >-
+  Yuhu Partners API uses OAuth 2.0 client-credentials. Partners exchange a client_id and
+  client_secret for a bearer access token, then send it as an Authorization: Bearer header
+  on all v1 requests. Tokens can be revoked. No user-delegated flows or API keys are
+  documented; there is no documented OAuth scope surface (client-credentials only).
+schemes:
+- name: OAuth2ClientCredentials
+  type: oauth2
+  flow: clientCredentials
+  token_url: https://api.yuhu.io/partners/token
+  revocation_url: https://api.yuhu.io/partners/revoke
+  grant_type: client_credentials
+  token_type: Bearer
+  sources: [https://developer.yuhu.io/]
+token_endpoint:
+  method: POST
+  url: https://api.yuhu.io/partners/token
+  params: [grant_type=client_credentials, client_id, client_secret]
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  response_fields: [access_token, token_type, created_at]

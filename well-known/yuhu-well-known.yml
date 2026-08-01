@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: searched
+source: probe of /.well-known/ on api.yuhu.io and developer.yuhu.io
+hosts:
+- https://api.yuhu.io
+- https://developer.yuhu.io
+documents:
+- path: /.well-known/security.txt
+  host: https://api.yuhu.io
+  status: 404
+- path: /.well-known/openid-configuration
+  host: https://api.yuhu.io
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  host: https://api.yuhu.io
+  status: 404
+- path: /.well-known/api-catalog
+  host: https://api.yuhu.io
+  status: 404
+- path: /.well-known/ai-plugin.json
+  host: https://api.yuhu.io
+  status: 404
+- path: /.well-known/security.txt
+  host: https://developer.yuhu.io
+  status: 404
+- path: /.well-known/openid-configuration
+  host: https://developer.yuhu.io
+  status: 404
+notes: >-
+  No /.well-known/ discovery documents are published on either the API host or the
+  developer docs host. Absence recorded as valid data.
