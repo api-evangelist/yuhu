@@ -11,6 +11,17 @@ description: >-
   sites, buildings, unit types, units, leases, tenants, service requests, notices,
   and payments using OAuth 2.0 client-credentials bearer tokens, upsert-style writes,
   synchronous and asynchronous batch endpoints, and per-resource hourly rate limits.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
