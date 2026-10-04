@@ -46,7 +46,7 @@ tags:
 - Company
 - Property Management
 - PropTech
-- Real-Estate
+- Real Estate
 - Multifamily
 - Rentals
 - Leasing
@@ -62,6 +62,7 @@ tags_raw:
 - Leasing
 - Payments
 - Partners API
+- Real-Estate
 apis:
 - name: Yuhu Partners API
   description: 'REST API (v1) for integration partners to synchronize property-management data with Yuhu:
